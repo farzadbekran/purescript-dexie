@@ -1,4 +1,4 @@
-var Dexie = require('dexie')
+var Dexie = require('dexie').default
 
 function ensureError(error) {
   error = error != null ? error : new Error('Undefined error')

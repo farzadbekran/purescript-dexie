@@ -1,4 +1,4 @@
-var Dexie = require('dexie')
+var Dexie = require('dexie').default
 
 exports._new = function (dbName) {
   return function () {
