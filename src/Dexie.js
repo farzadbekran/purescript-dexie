@@ -1,32 +1,32 @@
 var Dexie = require('dexie').default
 
-exports._new = function (dbName) {
+export function _new = function (dbName) {
   return function () {
     return new Dexie(dbName)
   }
 }
 
-exports._delete = function (dbName) {
+export function _delete = function (dbName) {
   return function () {
     return Dexie.delete(dbName)
   }
 }
 
-exports._getDatabaseNames = function () {
+export function _getDatabaseNames = function () {
   return Dexie.getDatabaseNames()
 }
 
-exports._exists = function (dbName) {
+export function _exists = function (dbName) {
   return function () {
     return Dexie.exists(dbName)
   }
 }
 
-exports._getDebug = function () {
+export function _getDebug = function () {
   return Dexie.debug
 }
 
-exports._setDebug = function (isDebug) {
+export function _setDebug = function (isDebug) {
   return function () {
     Dexie.debug = isDebug
   }

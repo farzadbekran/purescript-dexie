@@ -30,7 +30,7 @@ function unwrap(value) {
   return value
 }
 
-exports.new = function (callback) {
+export function new = function (callback) {
   return function () {
     return new Dexie.Promise(function (resolve, reject) {
       callback(function (value) {
@@ -46,25 +46,25 @@ exports.new = function (callback) {
   }
 }
 
-exports.all = function (promiseThunks) {
+export function all = function (promiseThunks) {
   return function () {
     return Dexie.Promise.all(triggerThunks(promiseThunks))
   }
 }
 
-exports.allSettled = function (promiseThunks) {
+export function allSettled = function (promiseThunks) {
   return function () {
     return Dexie.Promise.allSettled(triggerThunks(promiseThunks))
   }
 }
 
-exports.any = function (promiseThunks) {
+export function any = function (promiseThunks) {
   return function () {
     return Dexie.Promise.any(triggerThunks(promiseThunks))
   }
 }
 
-exports.catch = function (fn) {
+export function catch = function (fn) {
   return function (promiseThunk) {
     return function () {
       try {
@@ -78,7 +78,7 @@ exports.catch = function (fn) {
   }
 }
 
-exports.finally = function (fn) {
+export function finally = function (fn) {
   return function (promiseThunk) {
     return function () {
       return promiseThunk().finally(fn)
@@ -86,25 +86,25 @@ exports.finally = function (fn) {
   }
 }
 
-exports.race = function (promiseThunks) {
+export function race = function (promiseThunks) {
   return function () {
     return Dexie.Promise.race(triggerThunks(promiseThunks))
   }
 }
 
-exports.reject = function (error) {
+export function reject = function (error) {
   return function () {
     return Dexie.Promise.reject(error)
   }
 }
 
-exports.resolve = function (value) {
+export function resolve = function (value) {
   return function () {
     return Dexie.Promise.resolve(wrapIfPromise(value))
   }
 }
 
-exports._then = function (fn) {
+export function _then = function (fn) {
   return function (promiseThunk) {
     return function () {
       return promiseThunk().then(function (value) {
@@ -114,17 +114,17 @@ exports._then = function (fn) {
   }
 }
 
-exports._liftEffect = function (thunk) {
+export function _liftEffect = function (thunk) {
   return function () {
     return Dexie.Promise.resolve(wrapIfPromise(thunk()))
   }
 }
 
-exports._launch = function (thunk) {
+export function _launch = function (thunk) {
   return thunk
 }
 
-exports._join = function (launchedPromise) {
+export function _join = function (launchedPromise) {
   return function () {
     return launchedPromise
   }

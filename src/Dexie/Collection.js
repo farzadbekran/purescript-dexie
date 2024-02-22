@@ -1,4 +1,4 @@
-exports._and = function (filter) {
+export function _and = function (filter) {
   return function (collection) {
     return function () {
       return collection.and(filter)
@@ -6,31 +6,31 @@ exports._and = function (filter) {
   }
 }
 
-exports._clone = function (collection) {
+export function _clone = function (collection) {
   return function () {
     return collection.clone()
   }
 }
 
-exports._count = function (collection) {
+export function _count = function (collection) {
   return function () {
     return collection.count()
   }
 }
 
-exports._delete = function (collection) {
+export function _delete = function (collection) {
   return function () {
     return collection.delete()
   }
 }
 
-exports._distinct = function (collection) {
+export function _distinct = function (collection) {
   return function () {
     return collection.distinct()
   }
 }
 
-exports._each = function (callback) {
+export function _each = function (callback) {
   return function (collection) {
     return function () {
       return collection.each(function (item) {
@@ -40,7 +40,7 @@ exports._each = function (callback) {
   }
 }
 
-exports._eachKey = function (callback) {
+export function _eachKey = function (callback) {
   return function (collection) {
     return function () {
       return collection.eachKey(function (key) {
@@ -50,7 +50,7 @@ exports._eachKey = function (callback) {
   }
 }
 
-exports._eachPrimaryKey = function (callback) {
+export function _eachPrimaryKey = function (callback) {
   return function (collection) {
     return function () {
       return collection.eachPrimaryKey(function (primaryKey) {
@@ -60,7 +60,7 @@ exports._eachPrimaryKey = function (callback) {
   }
 }
 
-exports._eachUniqueKey = function (callback) {
+export function _eachUniqueKey = function (callback) {
   return function (collection) {
     return function () {
       return collection.eachUniqueKey(function (uniqueKey) {
@@ -70,7 +70,7 @@ exports._eachUniqueKey = function (callback) {
   }
 }
 
-exports._filter = function (filter) {
+export function _filter = function (filter) {
   return function (collection) {
     return function () {
       return collection.filter(filter)
@@ -78,25 +78,25 @@ exports._filter = function (filter) {
   }
 }
 
-exports._first = function (collection) {
+export function _first = function (collection) {
   return function () {
     return collection.first()
   }
 }
 
-exports._keys = function (collection) {
+export function _keys = function (collection) {
   return function () {
     return collection.keys()
   }
 }
 
-exports._last = function (collection) {
+export function _last = function (collection) {
   return function () {
     return collection.last()
   }
 }
 
-exports._limit = function (count) {
+export function _limit = function (count) {
   return function (collection) {
     return function () {
       return collection.limit(count)
@@ -104,7 +104,7 @@ exports._limit = function (count) {
   }
 }
 
-exports._modify = function (changes) {
+export function _modify = function (changes) {
   return function (collection) {
     return function () {
       return collection.modify(changes)
@@ -112,7 +112,7 @@ exports._modify = function (changes) {
   }
 }
 
-exports._offset = function (count) {
+export function _offset = function (count) {
   return function (collection) {
     return function () {
       return collection.offset(count)
@@ -120,7 +120,7 @@ exports._offset = function (count) {
   }
 }
 
-exports._or = function (indexName) {
+export function _or = function (indexName) {
   return function (collection) {
     return function () {
       return collection.or(indexName)
@@ -128,25 +128,25 @@ exports._or = function (indexName) {
   }
 }
 
-exports._primaryKeys = function (collection) {
+export function _primaryKeys = function (collection) {
   return function () {
     return collection.primaryKeys()
   }
 }
 
-exports._raw = function (collection) {
+export function _raw = function (collection) {
   return function () {
     return collection.raw()
   }
 }
 
-exports._reverse = function (collection) {
+export function _reverse = function (collection) {
   return function () {
     return collection.reverse()
   }
 }
 
-exports._sortBy = function (keyPath) {
+export function _sortBy = function (keyPath) {
   return function (collection) {
     return function () {
       return collection.sortBy(keyPath)
@@ -154,19 +154,19 @@ exports._sortBy = function (keyPath) {
   }
 }
 
-exports._toArray = function (collection) {
+export function _toArray = function (collection) {
   return function () {
     return collection.toArray()
   }
 }
 
-exports._uniqueKeys = function (collection) {
+export function _uniqueKeys = function (collection) {
   return function () {
     return collection.uniqueKeys()
   }
 }
 
-exports._until = function (filterFn) {
+export function _until = function (filterFn) {
   return function (includeStopEntry) {
     return function (collection) {
       return function () {
@@ -179,7 +179,7 @@ exports._until = function (filterFn) {
 //
 // Helpers
 
-exports._createModifyMapper = function (getModifyReplaceValue) {
+export function _createModifyMapper = function (getModifyReplaceValue) {
   return function (isModifyIgnore) {
     return function (isModifyDelete) {
       return function (fn) {

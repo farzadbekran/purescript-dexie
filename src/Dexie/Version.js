@@ -1,4 +1,4 @@
-exports._stores = function (storesObject) {
+export function _stores = function (storesObject) {
   return function (version) {
     return function () {
       return version.stores(storesObject)
@@ -6,7 +6,7 @@ exports._stores = function (storesObject) {
   }
 }
 
-exports._upgrade = function (callback) {
+export function _upgrade = function (callback) {
   return function (version) {
     return function () {
       return version.upgrade(function (trnx) {
